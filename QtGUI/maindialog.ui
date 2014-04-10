@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainDialog</class>
+ <widget class="QDialog" name="MainDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>620</width>
+    <height>460</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="windowTitle">
+   <string>SeeingEye Server</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <widget class="QGroupBox" name="gbOptions">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>20</y>
+     <width>280</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid #777;</string>
+   </property>
+   <property name="title">
+    <string>Options</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <widget class="QCheckBox" name="cbBlurDetection">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>126</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>blur detection</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cbAuthentication">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>30</y>
+      <width>126</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>authentication</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbbInterface">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>76</y>
+      <width>126</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="cbbIPAddress">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>76</y>
+      <width>126</width>
+      <height>27</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cbPort">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>124</y>
+      <width>126</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>port number</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lePort">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>124</y>
+      <width>126</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="gbLabels">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>200</y>
+     <width>280</width>
+     <height>240</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid #777;</string>
+   </property>
+   <property name="title">
+    <string>Labels</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <widget class="QListWidget" name="lwLabels">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>160</width>
+      <height>200</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbNewLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>new...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbDeleteLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>70</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>delete</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbEditLabel">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>110</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>edit...</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="gbCommands">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>20</y>
+     <width>280</width>
+     <height>160</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid #777;</string>
+   </property>
+   <property name="title">
+    <string>Commands</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <widget class="QPushButton" name="pbStart">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>30</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>start</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbStop">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>188</x>
+      <y>30</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>stop</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbRecognizeImage">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>124</y>
+      <width>264</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>recogonize an image...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbSuspend">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>98</x>
+      <y>30</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>suspend</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="gbClassifiers">
+   <property name="geometry">
+    <rect>
+     <x>320</x>
+     <y>200</y>
+     <width>280</width>
+     <height>240</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">border: 1px solid #777;</string>
+   </property>
+   <property name="title">
+    <string>Classifiers</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+   </property>
+   <widget class="QListWidget" name="lwClassifiers">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>30</y>
+      <width>160</width>
+      <height>200</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbNewClassifier">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>30</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>new...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbDeleteClassifier">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>70</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>delete</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbEditClassifier">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>110</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>edit...</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pbTrain">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>200</y>
+      <width>85</width>
+      <height>27</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>train...</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>pbStart</tabstop>
+  <tabstop>pbSuspend</tabstop>
+  <tabstop>pbStop</tabstop>
+  <tabstop>pbRecognizeImage</tabstop>
+  <tabstop>cbBlurDetection</tabstop>
+  <tabstop>cbAuthentication</tabstop>
+  <tabstop>cbbInterface</tabstop>
+  <tabstop>cbbIPAddress</tabstop>
+  <tabstop>cbPort</tabstop>
+  <tabstop>lePort</tabstop>
+  <tabstop>lwLabels</tabstop>
+  <tabstop>pbNewLabel</tabstop>
+  <tabstop>pbDeleteLabel</tabstop>
+  <tabstop>pbEditLabel</tabstop>
+  <tabstop>lwClassifiers</tabstop>
+  <tabstop>pbNewClassifier</tabstop>
+  <tabstop>pbDeleteClassifier</tabstop>
+  <tabstop>pbEditClassifier</tabstop>
+  <tabstop>pbTrain</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
