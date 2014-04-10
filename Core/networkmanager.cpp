@@ -1,4 +1,5 @@
 #include <unistd.h>
+#include <fcntl.h>
 #include <cstdio>
 #include <cstdlib>
 #include <fstream>
@@ -49,13 +50,17 @@ bool NetworkManager::initializeNetwork(int port)
     //Start listening.
     if (listen(serverSock,MAXCONNECTIONS)<0)
         return false;
+    if (fcntl(serverSock,F_SETOWN,getpid())<0) //attempt to set signal listener to us
+        return false;
+    if (fcntl(serverSock,F_SETFL,O_NONBLOCK|FASYNC)<0)//attempt to initialize nonblocking io
+        return false;
     return true;
 }
 
 void NetworkManager::startListening()
 {
     messageHeader* Header=new messageHeader;
-    endloopFlag=0;
+    endloopFlag=0;//break-out condition for signal processing
     while(endloopFlag==0)
     {
         struct sockaddr_in clientAddr;
@@ -77,44 +82,29 @@ void NetworkManager::startListening()
         if (acceptConnection(Header))
             dispatchMessage(Header);
         ::puts(".");
-        ::sleep(3);
     }
 }
 
 bool NetworkManager::acceptConnection(messageHeader* Header)
 {
-    try{
-        unsigned int numberOfBytesReceived=0;
-        while (numberOfBytesReceived<sizeof(messageHeader))
-        {
-            int currentReceive=recv(clientSock,Header,sizeof(messageHeader),0);
-            std::cout<<"Expected "<<sizeof(messageHeader)<<" bytes."<<std::endl;
-            std::cout<<"Received "<<currentReceive<<" bytes."<<std::endl;
-            if (currentReceive==-1)
-            {
-                std::cout<<"Error receiving"<<std::endl;
-                break;
-            }
-            numberOfBytesReceived+=currentReceive;
-        }
-    }
-    catch (std::exception& e)
+
+    unsigned int numberOfBytesReceived=0;
+    while (numberOfBytesReceived<sizeof(messageHeader))
     {
-        return false;
+        int currentReceive=recv(clientSock,Header,sizeof(messageHeader),0);
+        std::cout<<"Expected "<<sizeof(messageHeader)<<" bytes."<<std::endl;
+        std::cout<<"Received "<<currentReceive<<" bytes."<<std::endl;
+        if (currentReceive==-1)
+        {
+            std::cout<<"Error receiving"<<std::endl;
+            break;
+        }
+        numberOfBytesReceived+=currentReceive;
     }
 
     return true;
 }
 
-void NetworkManager::signalHandler()
-{
-    throw std::exception();
-}
-
-void NetworkManager::asyncListener()
-{
-
-}
 
 void NetworkManager::dispatchMessage(messageHeader* Header)
 {
