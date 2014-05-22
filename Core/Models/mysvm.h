@@ -15,7 +15,7 @@ private:
 
     int featurType; // 0--dct 1---lbpspm 2---gabor
     //-----------feature extraction parameters
-     string imgDir ;                         //训练图像的路径  ="/home/lsq/data/image/";
+    string imgDir ;                         //训练图像的路径  ="/home/lsq/data/image/";
 
 
     string featurePath;                      //path = baseDir + featureName +?

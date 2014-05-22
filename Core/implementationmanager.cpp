@@ -2,8 +2,8 @@
 #include "commondefinitions.h"
 #include "labelmanager.h"
 #include "classifiermanager.h"
-#include "modelmanager.h"
-#include "featuremanager.h"
+#include "Models/modelmanager.h"
+#include "Features/featuremanager.h"
 #include "networkmanager.h"
 
 #ifdef WIN32
@@ -33,4 +33,9 @@ ImplementationManager::ImplementationManager()
     NetworkManager* nm=NetworkManager::getInstance();
 }
 
+//Configuation file reading and saving.
 
+ImplementationManager::readConfiguation(const string configFileName)
+{
+
+}

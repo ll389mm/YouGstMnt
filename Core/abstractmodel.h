@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "abstractfeature.h"
 #include "label.h"
+#include "Features/feature.h"
 
 class AbstractModel {
 public:
@@ -25,7 +25,7 @@ public:
 
     int availFeatureTypes(std::vector<std::string> fns, int len);
 
-    bool train(AbstractFeature *f, Label *l);
+    bool train(Feature *f, Label *l);
 
     const std::string getName();
 

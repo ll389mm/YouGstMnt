@@ -1,10 +1,10 @@
 #include "mysvm.h"
 #include <vector>
-#include  "feature/featuremanager.h"
-#include "label/labelmanager.h"
-#include "label/label.h"
+#include "Features/featuremanager.h"
+#include "labelmanager.h"
+#include "label.h"
 #include <fstream>
-#include "model/libsvm/svm.h"
+#include "Models/libsvm/svm.h"
 #include <stdlib.h>
 
 using namespace std;

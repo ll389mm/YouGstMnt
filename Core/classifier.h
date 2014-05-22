@@ -4,21 +4,20 @@
 #include <string>
 #include <list>
 #include "abstractmodel.h"
-#include "abstractfeature.h"
 #include "label.h"
 
 class Classifier {
 public:
     Classifier(std::string n);
-    Classifier(std::string n, AbstractModel *m, AbstractFeature *f);
+    Classifier(std::string n, AbstractModel *m, Feature *f);
 
     std::string getName();
 
     AbstractModel *getModel();
     void setModel(AbstractModel *m);
 
-    AbstractFeature *getFeature();
-    void setFeature(AbstractFeature *f);
+    Feature *getFeature();
+    void setFeature(Feature *f);
 
     bool train(Label *la);
 
@@ -29,7 +28,7 @@ public:
 private:
     std::string name;
     AbstractModel *model;
-    AbstractFeature *feature;
+    Feature *feature;
     std::list<Label*> labels;
 };
 
