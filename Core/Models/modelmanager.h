@@ -44,6 +44,9 @@ public:
     bool	updateModel(const string& name,const Model& Model);
     bool    copyAllModels(std::vector<AbstractModel> buf, const int len);
     //Copy all existing Models to a new vector-buffer defined by buf.
+
+    bool    writeModels(const string configFileName="config.ini");
+    bool    readModels(const string configFileName="config.ini");
 private:
     std::list<Model> Models;
 #endif // MODELMANAGER_H

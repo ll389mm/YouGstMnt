@@ -14,6 +14,7 @@
 
 #include <iostream>
 #include <stdio.h>
+#include <fstream>
 
 ImplementationManager ImplementationManager::instance;
 
@@ -35,7 +36,7 @@ ImplementationManager::ImplementationManager()
 
 //Configuation file reading and saving.
 
-ImplementationManager::readConfiguation(const string configFileName)
+ImplementationManager::readConfiguation(const string configFileName="config.ini")
 {
-
+    ModelManager::readModels();
 }

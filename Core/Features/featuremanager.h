@@ -43,6 +43,8 @@ public:
     bool	updateFeature(const string& name,const Feature& feature);
     bool    copyAllFeatures(std::vector<AbstractFeature> buf, const int len);
     //Copy all existing features to a new vector-buffer defined by buf.
+    bool    readFeatures(const string configFileName = "config.ini");
+    bool    writeFeatures(const string configFileName = "config.ini");
 private:
     std::list<Feature> features;
 

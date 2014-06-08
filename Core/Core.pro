@@ -46,7 +46,6 @@ HEADERS += \
     label.h \
     commondefinitions.h \
     implementationmanager.h \
-    abstractmodel.h \
     classifier.h \
     labelmanager.h \
     classifiermanager.h \

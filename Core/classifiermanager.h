@@ -23,6 +23,9 @@ public:
 
     bool deleteClassifierByName(const std::string &name);
 
+    bool writeClassifiers(const string configFileName = "config.ini");
+    bool readClassifiers(const string configFileName = "config.ini");
+
 private:
     std::list<Classifier> classifiers;
 

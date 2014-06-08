@@ -3,31 +3,31 @@
 
 #include <string>
 #include <list>
-#include "abstractmodel.h"
+#include "Models/model.h"
 #include "label.h"
 
 class Classifier {
 public:
-    Classifier(std::string n);
-    Classifier(std::string n, AbstractModel *m, Feature *f);
+    Classifier(std::string n) : name(n) {}
+    Classifier(std::string n, AbstractModel *m, Feature *f) : name(n), model(m), feature(f) {}
 
-    std::string getName();
+    std::string getName() {return name;}
 
-    AbstractModel *getModel();
-    void setModel(AbstractModel *m);
+    Model *getModel() {return model;}
+    void setModel(Model *m) {model = m;}
 
-    Feature *getFeature();
-    void setFeature(Feature *f);
+    Feature *getFeature() {return feature;}
+    void setFeature(Feature *f) {feature = f;}
 
     bool train(Label *la);
 
-    int labelCounts();
+    int labelCounts() { return labels.size(); }
 
     int getLabels(Label *ls[], int len);
 
 private:
     std::string name;
-    AbstractModel *model;
+    Model *model;
     Feature *feature;
     std::list<Label*> labels;
 };
